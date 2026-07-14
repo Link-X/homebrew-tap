@@ -1,0 +1,38 @@
+cask "digitallife" do
+  version "1.0"
+  sha256 "f885e03099b997b63f573885759e55b4273eb5139a70445d2693c0752b42a956"
+
+  url "https://github.com/Link-X/digitallife-releases/releases/download/v#{version}/DigitalLife-#{version}.dmg",
+      verified: "github.com/Link-X/digitallife-releases/"
+  name "DigitalLife"
+  name "数字人生"
+  desc "macOS 电脑活动监控，数据全程本地不外传"
+  homepage "https://github.com/Link-X/digitallife-releases"
+
+  # 自动发现新版本（GitHub Releases 最新 tag）
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  depends_on macos: ">= :ventura" # 最低 macOS 13
+
+  app "DigitalLife.app"
+
+  uninstall quit: "com.digitallife.app"
+
+  # 单源数据目录 ~/Library/Application Support/digitallife
+  # （含 digitallife.db / settings.json / control.json / store_error.json）
+  zap trash: [
+    "~/Library/Application Support/digitallife",
+    "~/Library/Preferences/com.digitallife.app.plist",
+    "~/Library/Caches/com.digitallife.app",
+    "~/Library/HTTPStorages/com.digitallife.app",
+  ]
+
+  caveats <<~EOS
+    卸载前，建议先在 App 内使用「卸载」功能，摘除以 root 运行的能耗守护进程
+    （com.digitallife.powerd，SMAppService 注册），brew 无法以 root 清理它。
+    如启用过数据库加密，密钥保存在钥匙串（服务 digitallife），如需彻底清除请手动删除。
+  EOS
+end
