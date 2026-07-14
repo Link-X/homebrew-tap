@@ -2,11 +2,10 @@ cask "digitallife" do
   version "1.0"
   sha256 "f885e03099b997b63f573885759e55b4273eb5139a70445d2693c0752b42a956"
 
-  url "https://github.com/Link-X/digitallife-releases/releases/download/v#{version}/DigitalLife-#{version}.dmg",
-      verified: "github.com/Link-X/digitallife-releases/"
+  url "https://github.com/Link-X/digitallife-releases/releases/download/v#{version}/DigitalLife-#{version}.dmg"
   name "DigitalLife"
   name "数字人生"
-  desc "macOS 电脑活动监控，数据全程本地不外传"
+  desc "电脑活动监控，数据全程本地不外传"
   homepage "https://github.com/Link-X/digitallife-releases"
 
   # 自动发现新版本（GitHub Releases 最新 tag）
@@ -15,7 +14,7 @@ cask "digitallife" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :ventura" # 最低 macOS 13
+  depends_on macos: :ventura # 最低 macOS 13
 
   app "DigitalLife.app"
 
@@ -25,9 +24,9 @@ cask "digitallife" do
   # （含 digitallife.db / settings.json / control.json / store_error.json）
   zap trash: [
     "~/Library/Application Support/digitallife",
-    "~/Library/Preferences/com.digitallife.app.plist",
     "~/Library/Caches/com.digitallife.app",
     "~/Library/HTTPStorages/com.digitallife.app",
+    "~/Library/Preferences/com.digitallife.app.plist",
   ]
 
   caveats <<~EOS
