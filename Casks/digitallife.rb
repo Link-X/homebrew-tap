@@ -1,6 +1,6 @@
 cask "digitallife" do
-  version "1.3.4"
-  sha256 "0b1048b4685881696ae7a3d2c9685463d045bdac9e5699f5178f8907797d1902"
+  version "1.3.5"
+  sha256 "b0e13549133046c5cfa12ae1dc9cb3d1c60391ab1cda6886c750eca0031480ad"
 
   url "https://github.com/Link-X/digitallife-releases/releases/download/v#{version}/DigitalLife-#{version}.dmg"
   name "DigitalLife"
@@ -35,4 +35,3 @@ cask "digitallife" do
     如启用过数据库加密，密钥保存在钥匙串（服务 digitallife），如需彻底清除请手动删除。
   EOS
 end
-
