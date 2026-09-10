@@ -1,6 +1,6 @@
 cask "digitallife" do
-  version "1.3.10"
-  sha256 "6a4cc3b4d704c34ec758215a6fc4025aaae51f54c2056d7ea3f06a7f9499138b"
+  version "1.3.11"
+  sha256 "25b7120734677ca3268c2816b174c858fd17c9dde5d0cc8b841fcef795a9e5f5"
 
   url "https://github.com/Link-X/digitallife-releases/releases/download/v#{version}/DigitalLife-#{version}.dmg"
   name "DigitalLife"
