@@ -14,7 +14,7 @@ cask "digitallife" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura # 最低 macOS 13
+  depends_on macos: :tahoe # 最低 macOS 26（与工程 MACOSX_DEPLOYMENT_TARGET 一致）
 
   app "DigitalLife.app"
 
